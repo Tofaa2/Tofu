@@ -1,0 +1,5 @@
+name: TofuCore
+version: '${version}'
+main: me.tofaa.tofucore.TofuCore
+authors: [ Tofaa ]
+description: A utility core with an extensive api and functions needed for every server

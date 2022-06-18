@@ -1,6 +1,7 @@
 package me.tofaa.tofucore.command;
 
 import me.tofaa.tofucore.TofuCore;
+import me.tofaa.tofucore.configuration.type.Messages;
 import me.tofaa.tofucore.utilities.Strings;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.defaults.BukkitCommand;
@@ -47,16 +48,16 @@ public class TofuCommand extends BukkitCommand implements ICommand{
         Player player = (Player) sender;
 
         if (!player.hasPermission(permission)) {
-            player.sendMessage("You don't have permission to use this command.");
+            player.sendMessage(Messages.commandMessage(Messages.NO_PERMISSION, player, this));
             return false;
         }
         if (TofuCore.getInstance().getCommandManager().isInCooldown(player, this)) {
-            player.sendMessage("You can use this command again in " + TofuCore.getInstance().getCommandManager().getCooldownLeft(player, this) + " seconds.");
+            player.sendMessage(Messages.commandMessage(Messages.IN_COOLDOWN, player, this));
             return false;
         }
 
         if (args.length < minArgs) {
-            player.sendMessage(Strings.cc(usage));
+            player.sendMessage(Messages.commandMessage(Messages.INVALID_USAGE, player, this));
             return false;
         }
         TofuCore.getInstance().getCommandManager().setCooldown(player, this, cooldown);

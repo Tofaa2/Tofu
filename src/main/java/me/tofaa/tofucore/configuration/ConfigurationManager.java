@@ -8,7 +8,6 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 
-
 /*
     This class manages all the configuration files of the plugin.
     It contains util methods such as saving and loading configuration files, reloading configurations.

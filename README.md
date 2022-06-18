@@ -7,27 +7,26 @@
  >Tofu Command API is a simple and easy to use API for plugins to use. It is designed in a way that requires minimal boilerplate and eliminates the need for plugins to register their commands from plugin.yml files.
  > Commands have a configurable cooldown, permission, and usage message, a minimum args count and aliases.
  ```java
-public class TestCommand implements Command {
-    
-    @Override public String getName() { return "test"; }
-    @Override public String getUsage() { return "test <arg>"; }
-    @Override public String getDescription() { return "A test command"; }
-    @Override public String getPermission() { return "test.command"; }
-    @Override public int getMinArgs() { return 1; }
-    @Override public int getCooldown() { return 0; }
-    @Override public List<String> getAliases() { return Arrays.asList("test"); }
-    @Override public boolean isConsole() { return false; }
-    @Override public void execute(CommandSender sender, String[] args) {
-        
-        /*
-           We can cast the sender to Player safely because 
-           we know that isConsole() is false;
-           This api will be rewritten soon for a better implementation
-         */
-        Player player = (Player) sender; 
-        sender.sendMessage("Test command executed");
-    }
-}   
+public class HelpCommand extends TofuCommand {
+
+ public HelpCommand() {
+  super("help", "This is help description", "tofucore.help", List.of("h", "what"), "help <pogger> ", 1, 5);
+ }
+ 
+ // You do not need to override both of these,
+ // you can override whichever sender type you want the command ran by
+ @Override
+ public void runPlayer(Player player, String label, String[] args){
+  player.sendMessage("This is help description");
+ }
+
+ @Override
+ public void runConsole(CommandSender sender, String label, String[] args){
+  sender.sendMessage("This is help description");
+ }
+
+}
+
 
 public class Main() {
     TofuAPI.getCommandManager().registerCommand(new TestCommand()); // Register the command
@@ -58,3 +57,7 @@ public class Main() {
 TestGUI gui = new TestGUI(); // Or get from some cache if you stored it
 gui.open(Player player); // Open the gui
  ```
+
+ > Tofu has a built-in FakePlayer system that allows you to create a fake player on the server. These are not NPC's but OfflinePlayer instances. FakePlayer's are used to modify scoreboard teams or register them. You can find some usage in the TofuScoreboard class
+ ```java
+  FakePlayer fakePlayer = new FakePlayer("Name", org.bukkit.Team team, int offset);

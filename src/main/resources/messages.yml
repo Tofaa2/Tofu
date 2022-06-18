@@ -1,0 +1,20 @@
+prefix: "&f[&bTofuCore&f]" # Can be accessed in every message with {prefix}
+
+commands:
+
+  # All messages here support the following variables:
+  # {player} - The player's name
+  # {command} - The command that was used
+  # {usage} - The usage of the command
+  # {permission} - The permission required to use the command
+  # {cooldown} - The cooldown of the command
+  # {cooldown-remaining} - The remaining cooldown of the command ( Per player )
+
+  invalid-usage: "&cInvalid usage: &7{usage}"
+  no-permission: "&cYou do not have permission to use this command. &7{permission}"
+  in-cooldown: "&cYou are in cooldown for &7{cooldown-remaining}/{cooldown} &cseconds."
+
+config:
+  # All messages here support the following variables:
+  # {config} - The config file that was loaded
+  reloaded: "&aConfig &7{config} &areloaded!"

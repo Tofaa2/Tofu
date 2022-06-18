@@ -9,8 +9,10 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 
 public class TofuItem extends ItemStack {
 
@@ -19,7 +21,7 @@ public class TofuItem extends ItemStack {
     @Getter private final List<String> lore;
 
     @Getter @Setter private int amount;
-    @Getter private final byte data;
+    @Getter private final byte byteData;
 
     @Getter private final List<ItemFlag> flags;
     @Getter private final HashMap<Enchantment, Integer> enchantments;
@@ -29,7 +31,7 @@ public class TofuItem extends ItemStack {
         this.material = material;
         this.name = name;
         this.lore = lore;
-        this.data = data;
+        this.byteData = data;
         this.amount = amount;
         this.flags = flags;
         this.enchantments = enchantments;

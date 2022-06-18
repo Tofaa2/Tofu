@@ -16,6 +16,9 @@ public class TofuCore extends JavaPlugin {
 
     @Override public void onLoad(){instance = this;}
     @Override public void onEnable() {
+        if (!getDataFolder().exists()) {
+            getDataFolder().mkdir();
+        }
         this.taskManager = new TofuTaskManager();
         this.configManager = new ConfigurationManager();
         this.commandManager = new CommandManager();

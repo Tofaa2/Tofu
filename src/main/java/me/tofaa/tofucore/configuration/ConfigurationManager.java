@@ -2,6 +2,7 @@ package me.tofaa.tofucore.configuration;
 
 import lombok.Getter;
 import me.tofaa.tofucore.TofuCore;
+import me.tofaa.tofucore.TofuLogger;
 import me.tofaa.tofucore.utilities.exceptions.IncorrectTofuConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -26,21 +27,24 @@ public class ConfigurationManager {
 
         if (!configFile.exists()) {
             try {
-                boolean a = configFile.mkdirs();
                 TofuCore.getInstance().saveResource("config.yml", false);
+                //boolean a = configFile.createNewFile();
             } catch (Exception e) {
-                TofuCore.getInstance().getLogger().severe("Could not create config file!");
+                TofuLogger.logError("Could not create config file!");
+                e.printStackTrace();
             }
         }
 
         if (!messagesFile.exists()) {
             try {
-                boolean a = messagesFile.mkdirs();
                 TofuCore.getInstance().saveResource("messages.yml", false);
+                //boolean a = messagesFile.createNewFile();
             } catch (Exception e) {
-                TofuCore.getInstance().getLogger().severe("Could not create messages file!");
+                TofuLogger.logError("Could not create messages file!");
+                e.printStackTrace();
             }
         }
+
 
         this.config = YamlConfiguration.loadConfiguration(configFile);
         this.messages = YamlConfiguration.loadConfiguration(messagesFile);

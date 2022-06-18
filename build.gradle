@@ -11,7 +11,7 @@ apply plugin: 'com.github.johnrengelman.shadow'
 
 
 group = 'me.tofaa.tofucore'
-version = '1.0'
+version = '1.0.1'
 
 repositories {
     mavenCentral()
@@ -52,4 +52,11 @@ processResources {
     filesMatching('plugin.yml') {
         expand props
     }
+    filesMatching('config.yml') {
+        expand props
+    }
+    filesMatching('messages.yml') {
+        expand props
+    }
+
 }

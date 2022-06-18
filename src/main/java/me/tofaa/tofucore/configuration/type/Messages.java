@@ -2,7 +2,6 @@ package me.tofaa.tofucore.configuration.type;
 
 import lombok.Getter;
 import me.tofaa.tofucore.TofuCore;
-import me.tofaa.tofucore.command.ICommand;
 import me.tofaa.tofucore.command.TofuCommand;
 import me.tofaa.tofucore.utilities.Strings;
 import org.bukkit.entity.Player;
@@ -12,9 +11,9 @@ import java.io.File;
 public enum Messages {
     PREFIX("prefix"),
 
-    INVALID_USAGE("command.invalid-usage"),
-    IN_COOLDOWN("command.in-cooldown"),
-    NO_PERMISSION("command.no-permission"),
+    INVALID_USAGE("commands.invalid-usage"),
+    IN_COOLDOWN("commands.in-cooldown"),
+    NO_PERMISSION("commands.no-permission"),
     CONFIGURATION_RELOADED("config.reloaded");
 
     @Getter private final String key;

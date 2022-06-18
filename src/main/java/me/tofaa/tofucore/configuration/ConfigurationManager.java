@@ -1,102 +1,82 @@
 package me.tofaa.tofucore.configuration;
 
+import lombok.Getter;
 import me.tofaa.tofucore.TofuCore;
-import me.tofaa.tofucore.utilities.Strings;
+import me.tofaa.tofucore.utilities.exceptions.IncorrectTofuConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
-import java.io.IOException;
 
+
+/*
+    This class manages all the configuration files of the plugin.
+    It contains util methods such as saving and loading configuration files, reloading configurations.
+ */
 public class ConfigurationManager {
 
 
-    private final File configFile;
-    private final File messagesFile;
+    private final File configFile = new File(TofuCore.getInstance().getDataFolder(), "config.yml");
+    private final File messagesFile = new File(TofuCore.getInstance().getDataFolder(), "messages.yml");
 
-    private FileConfiguration config;
-    private FileConfiguration messages;
+    @Getter private FileConfiguration config;
+    @Getter private FileConfiguration messages;
+
 
     public ConfigurationManager() {
-        this.configFile = new File(TofuCore.getInstance().getDataFolder(), "config.yml");
-        this.messagesFile = new File(TofuCore.getInstance().getDataFolder(), "message.yml");
-        boolean configBefore = true;
-        boolean messagesBefore = true;
+
         if (!configFile.exists()) {
             try {
-                TofuCore.getInstance().getLogger().info("Configuration file not found. Creating new one.");
-                configFile.createNewFile();
-                TofuCore.getInstance().getLogger().info("Configuration file created.");
-                configBefore = false;
-            } catch (IOException e) {
-                TofuCore.getInstance().getLogger().severe("Could not create configuration file.");
-                e.printStackTrace();
+                boolean a = configFile.mkdirs();
+                TofuCore.getInstance().saveResource("config.yml", false);
+            } catch (Exception e) {
+                TofuCore.getInstance().getLogger().severe("Could not create config file!");
             }
         }
 
         if (!messagesFile.exists()) {
             try {
-                TofuCore.getInstance().getLogger().info("Message file not found. Creating new one.");
-                messagesFile.createNewFile();
-                TofuCore.getInstance().getLogger().info("Message file created.");
-                messagesBefore = false;
-            } catch (IOException e) {
-                TofuCore.getInstance().getLogger().severe("Could not create message file.");
-                e.printStackTrace();
+                boolean a = messagesFile.mkdirs();
+                TofuCore.getInstance().saveResource("messages.yml", false);
+            } catch (Exception e) {
+                TofuCore.getInstance().getLogger().severe("Could not create messages file!");
             }
         }
 
         this.config = YamlConfiguration.loadConfiguration(configFile);
         this.messages = YamlConfiguration.loadConfiguration(messagesFile);
-
-        if (!configBefore) {
-            this.config.set("disable-vanilla-commands", false);
-
-            this.config.set("database.type", "FLAT_FILE");
-            this.config.set("database.url", "localhost");
-            this.config.set("database.port", 3306);
-            this.config.set("database.username", "root");
-            this.config.set("database.password", "root");
+    }
 
 
-
+    public void reloadConfig(File config) throws IncorrectTofuConfigurationException {
+        if (config.equals(configFile)) {
+            this.config = YamlConfiguration.loadConfiguration(configFile);
         }
-
-        save();
-    }
-
-    private void addDefaults(){
-
-    }
-
-
-    public void save(){
-        try {
-            TofuCore.getInstance().getLogger().info("Saving configuration file.");
-            config.save(configFile);
-            TofuCore.getInstance().getLogger().info("Saving message file.");
-            messages.save(messagesFile);
-            TofuCore.getInstance().getLogger().info("Configuration files saved.");
-        } catch (IOException e) {
-            TofuCore.getInstance().getLogger().severe("Could not save configuration file.");
-            e.printStackTrace();
+        else if (config.equals(messagesFile)) {
+            this.messages = YamlConfiguration.loadConfiguration(messagesFile);
+        }
+        else {
+            throw new IncorrectTofuConfigurationException(config);
         }
     }
 
-    public void addConfigKey(String key, Object value){
-        config.set(key, value);
+    public void saveConfig(File config) throws IncorrectTofuConfigurationException {
+        if (config.equals(configFile)) {
+            try {
+                this.config.save(configFile);
+            } catch (Exception e) {
+                TofuCore.getInstance().getLogger().severe("Could not save config file!");
+            }
+        }
+        else if (config.equals(messagesFile)) {
+            try {
+                this.messages.save(messagesFile);
+            } catch (Exception e) {
+                TofuCore.getInstance().getLogger().severe("Could not save messages file!");
+            }
+        }
+        else {
+            throw new IncorrectTofuConfigurationException(config);
+        }
     }
-
-    public void addMessageKey(String key, Object value){
-        messages.set(key, value);
-    }
-
-    public Object getConfigValue(String key){
-        return config.get(key);
-    }
-
-    public Object getMessageValue(String key){
-        return Strings.cc(messages.getString(key).replaceAll("%prefix%", messages.getString("prefix")));
-    }
-
 }

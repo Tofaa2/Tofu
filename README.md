@@ -30,7 +30,7 @@ public class TestCommand implements Command {
 }   
 
 public class Main() {
-    TofuAPI.getCommandHandler().registerCommand(new TestCommand()); // Register the command
+    TofuAPI.getCommandManager().registerCommand(new TestCommand()); // Register the command
 }
  ```
 

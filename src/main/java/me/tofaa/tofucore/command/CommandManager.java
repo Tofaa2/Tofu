@@ -2,7 +2,8 @@ package me.tofaa.tofucore.command;
 
 import me.tofaa.tofucore.TofuCore;
 import me.tofaa.tofucore.TofuLogger;
-import me.tofaa.tofucore.command.help.HelpCommand;
+import me.tofaa.tofucore.command.config.ReloadConfigurationCommand;
+import me.tofaa.tofucore.configuration.type.Configuration;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -21,12 +22,13 @@ public class CommandManager {
 
 
         // Add commands here.
-        registerCommand(new HelpCommand());
+        registerCommand(new ReloadConfigurationCommand());
 
         for (TofuCommand command : commands) {
-            TofuLogger.logInfo("Setting up command: " + command.getName());
             Bukkit.getCommandMap().register("help", command);
-            TofuLogger.logInfo("Command " + command.getName() + " setup.");
+            if (Configuration.get(Configuration.DEBUG_MODE).equals(true)) {
+                TofuLogger.logInfo("Setup command: " + command.getName());
+            }
         }
 
 
@@ -51,7 +53,9 @@ public class CommandManager {
 
     public void registerCommand(TofuCommand command) {
         commands.add(command);
-        TofuLogger.logInfo("&aRegistered command: " + command.getName());
+        if (Configuration.get(Configuration.DEBUG_MODE).equals(true)) {
+            TofuLogger.logInfo("Registered command: " + command.getName());
+        }
     }
     public void setCooldown(Player player, ICommand command, int cooldown) {
         if (!cooldowns.containsKey(player)) {

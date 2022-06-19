@@ -1,6 +1,7 @@
 package me.tofaa.tofucore.command;
 
 import me.tofaa.tofucore.TofuCore;
+import me.tofaa.tofucore.configuration.type.Configuration;
 import me.tofaa.tofucore.configuration.type.Messages;
 import me.tofaa.tofucore.utilities.Strings;
 import org.bukkit.command.CommandSender;
@@ -51,6 +52,9 @@ public class TofuCommand extends BukkitCommand implements ICommand{
             player.sendMessage(Messages.commandMessage(Messages.NO_PERMISSION, player, this));
             return false;
         }
+
+
+
         if (TofuCore.getInstance().getCommandManager().isInCooldown(player, this)) {
             player.sendMessage(Messages.commandMessage(Messages.IN_COOLDOWN, player, this));
             return false;
@@ -60,7 +64,9 @@ public class TofuCommand extends BukkitCommand implements ICommand{
             player.sendMessage(Messages.commandMessage(Messages.INVALID_USAGE, player, this));
             return false;
         }
-        TofuCore.getInstance().getCommandManager().setCooldown(player, this, cooldown);
+        if (Configuration.get(Configuration.COOLDOWN_BYPASS_ENABLED).equals(true) && !player.hasPermission((String) Configuration.get(Configuration.COOLDOWN_BYPASS_PERMISSION))) {
+            TofuCore.getInstance().getCommandManager().setCooldown(player, this, cooldown);
+        }
         runPlayer(player, label, args);
 
         return true;

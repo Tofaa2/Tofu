@@ -1,0 +1,16 @@
+# This is a constructor for your custom items.
+# The items here can be accessed globally on the server with give <itemid>
+# There are some default items you can use such as filler for gui's
+
+gui-filler:
+  material: STAINED_GLASS_PANE # Material of the item, make sure it's the right material for your server version
+  data: 7 # If an item has item data, set it here, if not keep it at 0
+  name: " " # Name of the item
+  lore: # Lore of the item
+    - "Lore one"
+    - "Lore two"
+  enchantments:
+    - "PROTECTION_ENVIRONMENTAL:1" # Enchantment, level
+  flags:
+    - "HIDE_UNBREAKABLE"
+  unbreakable: true

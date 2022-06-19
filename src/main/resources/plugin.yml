@@ -1,5 +1,6 @@
-name: TofuCore
+name: Tofu
 version: '${version}'
-main: me.tofaa.tofucore.TofuCore
+main: me.tofaa.tofu.Tofu
+load: STARTUP
 authors: [ Tofaa ]
 description: A utility core with an extensive api and functions needed for every server

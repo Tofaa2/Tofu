@@ -13,7 +13,8 @@ commands:
   invalid-usage: "&cInvalid usage: &7{usage}"
   no-permission: "&cYou do not have permission to use this command. &7{permission}"
   in-cooldown: "&cYou are in cooldown for &7{cooldown-remaining}/{cooldown} &cseconds."
-
+  invalid-target: "&cInvalid target."
+  item-given: "&7You have given &b{player} &7{item}." # {item} is replaced with the item's name
 config:
   # All messages here support the following variables:
   # {config} - The config file that was loaded

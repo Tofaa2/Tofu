@@ -10,7 +10,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.github.johnrengelman.shadow'
 
 
-group = 'me.tofaa.tofucore'
+group = 'me.tofaa.tofu'
 version = '0.1'
 
 repositories {

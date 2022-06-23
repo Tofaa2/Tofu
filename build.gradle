@@ -46,7 +46,7 @@ repositories {
 dependencies {
     compileOnly 'com.destroystokyo.paper:paper-api:1.12.2-R0.1-SNAPSHOT'
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
-    implementation 'mysql:mysql-connector-java:8.0.29'
+    //mplementation 'mysql:mysql-connector-java:8.0.29'
     compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT' // Spigot R3
 }
 
@@ -58,6 +58,11 @@ java {
     if (JavaVersion.current() < javaVersion) {
         toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
     }
+}
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
 tasks.withType(JavaCompile).configureEach {

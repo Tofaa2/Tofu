@@ -30,7 +30,8 @@ public class ScoreboardString implements ConfigurationSerializable {
             sidebarString.addVariation(prefix + color + suff + suffix);
             if (text.charAt(i) == '§') {
                 i += 2;
-            } else if (text.charAt(i) == ' ') {
+            }
+            else if (text.charAt(i) == ' ') {
                 i++;
             }
         }

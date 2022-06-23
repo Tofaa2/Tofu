@@ -40,12 +40,9 @@ public class TofuScoreboard implements ConfigurationSerializable, IScoreboard {
 
 
     public TofuScoreboard(String title, int updateDelayInTicks, ScoreboardString... entries) {
-
         this.title = title;
         this.entries = new ArrayList<>(Arrays.asList(entries));
-
         bukkitScoreboard = bukkitManager.getNewScoreboard();
-
         bukkitObjective = bukkitScoreboard.registerNewObjective("obj", "dummy");
         bukkitObjective.setDisplaySlot(DisplaySlot.SIDEBAR);
         bukkitObjective.setDisplayName(this.title);
@@ -56,11 +53,7 @@ public class TofuScoreboard implements ConfigurationSerializable, IScoreboard {
             teams[i] = team;
         }
         update();
-
         setUpdateDelay(updateDelayInTicks);
-
-        tofu.getScoreboardManager().register(this);
-
     }
 
     @SuppressWarnings("unchecked")

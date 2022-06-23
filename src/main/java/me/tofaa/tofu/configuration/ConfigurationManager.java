@@ -120,6 +120,7 @@ public class ConfigurationManager {
         this.scoreboards = YamlConfiguration.loadConfiguration(scoreboardsFile);
         this.items = YamlConfiguration.loadConfiguration(itemsFile);
         Tofu.getInstance().getItemManager().reload();
+        Tofu.getInstance().getScoreboardManager().reload();
     }
     public void saveConfig(File config) throws IncorrectTofuConfigurationException {
         if (config.equals(configFile)) {

@@ -1,5 +1,6 @@
 # This is Tofu's scoreboard system.
-# It's a simple system that allows you to create a scoreboard with an id and use it anywhere in the plugin (/showboard <player> <id>)
+# It's a simple system that allows you to create a scoreboard with an id
+#and use it anywhere in the plugin (/showboard <player> <id>)
 
 main-scoreboard: main
 

@@ -68,7 +68,6 @@ public class ExtendedTofuScoreboard implements ConfigurationSerializable, IScore
 
         setUpdateDelay( updateDelayInTicks);
 
-        tofu.getScoreboardManager().registerExtended(this);
 
     }
 

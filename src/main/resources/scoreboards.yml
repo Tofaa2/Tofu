@@ -11,4 +11,3 @@ main:
     - "&a&lTofu &7- &f%player_count% &7players"
     - "&b&lTofu &7- &f%online_count% &7online"
     - "&c&lTofu &7- &f%server_count% &7servers"
-    -a

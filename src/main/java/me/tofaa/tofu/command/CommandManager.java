@@ -4,9 +4,11 @@ import me.tofaa.tofu.Tofu;
 import me.tofaa.tofu.TofuLogger;
 import me.tofaa.tofu.command.config.ReloadConfigurationCommand;
 import me.tofaa.tofu.command.item.GiveCommand;
+import me.tofaa.tofu.command.util.ScoreboardCommand;
 import me.tofaa.tofu.configuration.type.Configuration;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,13 +20,14 @@ public class CommandManager {
     private final List<TofuCommand> commands;
 
     public CommandManager(){
-        cooldowns = new HashMap<>();
+        this.cooldowns = new HashMap<>();
         this.commands = new ArrayList<>(); // We are creating this on runtime, so we don't need to worry about ArrayList recreation speed.
 
 
         // Add commands here.
         registerCommand(new ReloadConfigurationCommand());
         registerCommand(new GiveCommand());
+        registerCommand(new ScoreboardCommand());
 
         for (TofuCommand command : commands) {
             Bukkit.getCommandMap().register("help", command);

@@ -45,6 +45,8 @@ repositories {
 
 dependencies {
     compileOnly 'com.destroystokyo.paper:paper-api:1.12.2-R0.1-SNAPSHOT'
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation 'mysql:mysql-connector-java:8.0.29'
     compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT' // Spigot R3
 }
 

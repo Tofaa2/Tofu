@@ -39,7 +39,7 @@ public class TofuScoreboard implements ConfigurationSerializable, IScoreboard {
     private int prevEntries = 0;
 
 
-    public TofuScoreboard(String title, int updateDelayInTicks, ScoreboardString... entries) {
+    public TofuScoreboard(String title, int updateDelayInTicks,  ScoreboardString... entries) {
         this.title = title;
         this.entries = new ArrayList<>(Arrays.asList(entries));
         bukkitScoreboard = bukkitManager.getNewScoreboard();
@@ -82,12 +82,10 @@ public class TofuScoreboard implements ConfigurationSerializable, IScoreboard {
 
     public TofuScoreboard setUpdateDelay(int delayInTicks) {
 
-        if (delayInTicks < 1)
-            throw new IllegalArgumentException("delayInTicks cannot be less than 1!");
+        if (delayInTicks < 1) return this;
 
         if (updateTask != null)
             updateTask.cancel();
-
         updateTask = (new BukkitRunnable() {
             @Override
             public void run() {

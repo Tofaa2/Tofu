@@ -39,7 +39,6 @@ public class TofuItem extends ItemStack {
 
         ItemMeta meta = getItemMeta();
         meta.setDisplayName(Strings.cc(name));
-        meta.setUnbreakable(true);
         if (lore != null && !lore.isEmpty()){
             List<String> tempLore = new ArrayList<>(lore.size());
             for (String s : lore) {

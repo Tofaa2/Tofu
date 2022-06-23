@@ -85,8 +85,7 @@ public class ExtendedTofuScoreboard implements ConfigurationSerializable, IScore
 
     public ExtendedTofuScoreboard setUpdateDelay(int delayInTicks) {
 
-        if (delayInTicks < 1)
-            throw new IllegalArgumentException("delayInTicks cannot be less than 1!");
+        if (delayInTicks < 1) return this;
 
         if (updateTask != null)
             updateTask.cancel();

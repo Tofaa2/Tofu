@@ -2,11 +2,11 @@
 # It's a simple system that allows you to create a scoreboard with an id
 #and use it anywhere in the plugin (/showboard <player> <id>)
 
-main-scoreboard: main
+default-scoreboard: main
 
 main:
   update: false # Set to true to update the scoreboard every x ticks
-  update-interval: 20 # This is the amount of ticks between each update. This setting is ignored if update is set to false.
+  update-delay: 20 # This is the amount of ticks between each update. This setting is ignored if update is set to false.
   title: "Tofu Scoreboard"
   lines:
     - "&a&lTofu &7- &f%player_count% &7players"

@@ -1,8 +1,9 @@
 package me.tofaa.tofu;
 
+import lombok.Setter;
 import me.tofaa.tofu.command.CommandManager;
 import me.tofaa.tofu.configuration.ConfigurationManager;
-import me.tofaa.tofu.event.events.PlayerJoinEvent;
+import me.tofaa.tofu.event.EventManager;
 import me.tofaa.tofu.item.ItemManager;
 import me.tofaa.tofu.scoreboard.ScoreboardManager;
 import me.tofaa.tofu.utilities.TofuTaskManager;
@@ -13,7 +14,6 @@ import lombok.Getter;
 public class Tofu extends JavaPlugin {
 
     @Getter private static Tofu instance;
-
     @Getter private TofuTaskManager taskManager;
     @Getter private ConfigurationManager configManager;
     @Getter private CommandManager commandManager;
@@ -21,6 +21,7 @@ public class Tofu extends JavaPlugin {
     @Getter private NMSHandler nmsHandler;
     //@Getter private Database database;
     @Getter private ScoreboardManager scoreboardManager;
+    @Getter private EventManager eventManager;
 
     @Override public void onLoad(){instance = this;}
     @Override public void onEnable() {
@@ -32,9 +33,8 @@ public class Tofu extends JavaPlugin {
         this.itemManager = new ItemManager();
         this.nmsHandler = new NMSHandler();
         //this.database = new Database();
+        this.eventManager = new EventManager();
         this.scoreboardManager = new ScoreboardManager();
-
-        getServer().getPluginManager().registerEvents(new PlayerJoinEvent(), this);
 
     }
 

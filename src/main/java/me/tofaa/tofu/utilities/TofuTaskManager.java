@@ -2,7 +2,13 @@ package me.tofaa.tofu.utilities;
 
 import me.tofaa.tofu.Tofu;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class TofuTaskManager {
+
+    public static final ExecutorService threadSafeExecutor = Executors.newSingleThreadExecutor();
+    public static final ExecutorService flatFileExecutor = Executors.newCachedThreadPool();
 
     public void runSync(Runnable runnable) {
         Tofu.getInstance().getServer().getScheduler().runTask(Tofu.getInstance(), runnable);

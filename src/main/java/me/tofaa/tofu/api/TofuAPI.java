@@ -8,6 +8,9 @@ import me.tofaa.tofu.event.EventManager;
 import me.tofaa.tofu.item.ItemManager;
 import me.tofaa.tofu.scoreboard.ScoreboardManager;
 
+/*
+    Pretend this is supposed to resemble an api and not some static references.
+ */
 public class TofuAPI {
 
     public static ItemManager getItemAPI(){return Tofu.getInstance().getItemManager();}

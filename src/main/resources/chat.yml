@@ -1,0 +1,13 @@
+# This is the Tofu chat configuration.
+# You can use this to customize the chat.
+# Each group specified (ex: default) should be synced with permissions.yml
+# You can use the following variables:
+
+#   - {player} - The player name
+#   - {group} - The group name
+#   - {group.upper} - The group name in upper case
+#   - {group.lower} - The group name in lower case
+#   - {group.capitalize} - The group name in capitalize
+#   - {message} - The message sent
+
+default: "&7" # The default player message formatting

@@ -1,8 +1,8 @@
 package me.tofaa.tofu;
 
-import lombok.Setter;
 import me.tofaa.tofu.command.CommandManager;
 import me.tofaa.tofu.configuration.ConfigurationManager;
+import me.tofaa.tofu.database.Database;
 import me.tofaa.tofu.event.EventManager;
 import me.tofaa.tofu.item.ItemManager;
 import me.tofaa.tofu.scoreboard.ScoreboardManager;
@@ -19,7 +19,7 @@ public class Tofu extends JavaPlugin {
     @Getter private CommandManager commandManager;
     @Getter private ItemManager itemManager;
     @Getter private NMSHandler nmsHandler;
-    //@Getter private Database database;
+    @Getter private Database database;
     @Getter private ScoreboardManager scoreboardManager;
     @Getter private EventManager eventManager;
 
@@ -32,7 +32,7 @@ public class Tofu extends JavaPlugin {
         this.commandManager = new CommandManager();
         this.itemManager = new ItemManager();
         this.nmsHandler = new NMSHandler();
-        //this.database = new Database();
+        this.database = new Database();
         this.eventManager = new EventManager();
         this.scoreboardManager = new ScoreboardManager();
 

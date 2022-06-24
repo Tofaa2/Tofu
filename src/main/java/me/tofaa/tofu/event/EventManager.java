@@ -3,6 +3,7 @@ package me.tofaa.tofu.event;
 import me.tofaa.tofu.Tofu;
 import me.tofaa.tofu.TofuLogger;
 import me.tofaa.tofu.configuration.type.Configuration;
+import me.tofaa.tofu.database.types.flatfile.FlatFileDataListener;
 import me.tofaa.tofu.event.events.PlayerJoinScoreboardListener;
 
 import java.util.LinkedList;
@@ -16,6 +17,9 @@ public class EventManager {
 
 
         register(new PlayerJoinScoreboardListener());
+
+        // Database
+        register(new FlatFileDataListener());
 
         for (TofuBukkitEvent event : bukkitEvents) {
             if (Configuration.get(Configuration.DEBUG_MODE ).equals(true)) {

@@ -41,7 +41,7 @@ public class Tofu extends JavaPlugin {
     }
 
     @Override public void onDisable() {
-
+        TofuLogger.logLinux(TofuLogger.BLACK_BOLD_BRIGHT + "Hello World" + TofuLogger.RESET + TofuLogger.RED_BOLD_BRIGHT + "!");
     }
 
 

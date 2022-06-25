@@ -92,7 +92,11 @@ public class TofuLogger {
         Tofu.getInstance().getServer().getConsoleSender().sendMessage(Messages.get(Messages.PREFIX) + Strings.cc( " &cERROR: " + message));
     }
 
-
-
+    // This method is used to print out a message to the console.
+    // It supports linux color codes seen above.
+    public static void logLinux(String message) {
+        logInfo("Linux:");
+        System.out.println(message);
+    }
 
 }

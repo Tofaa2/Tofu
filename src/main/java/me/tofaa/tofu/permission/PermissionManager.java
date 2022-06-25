@@ -1,9 +1,12 @@
 package me.tofaa.tofu.permission;
 
 
+import me.tofaa.tofu.Tofu;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import java.util.HashMap;
-import java.util.HashSet;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class PermissionManager {
 
@@ -30,6 +33,24 @@ public class PermissionManager {
 
     public PermissionGroup getGroup(Player player){
         return players.get(player);
+    }
+    public PermissionGroup getGroup(String id) {return groups.stream().filter(group -> group.getId().equals(id)).findFirst().orElse(null);}
+
+    public void reload() {
+        groups.clear();
+
+        FileConfiguration permissions = Tofu.getInstance().getConfigManager().getPermissions();
+        Set<String> groups = permissions.getKeys(false);
+
+        groups.forEach(group -> {
+            PermissionGroup permissionGroup = new PermissionGroup(group);
+            LinkedHashSet<String> groupPermissions = new LinkedHashSet<>(permissions.getStringList(group));
+            permissionGroup.getPermissions().addAll(groupPermissions);
+
+
+
+            registerGroup(permissionGroup);
+        });
     }
 
 

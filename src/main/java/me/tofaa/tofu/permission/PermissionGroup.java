@@ -18,4 +18,7 @@ public class PermissionGroup {
         return permissions.contains(permission);
     }
 
+    public void addInheritedGroup(PermissionGroup inherited) {
+        permissions.addAll(inherited.getPermissions());
+    }
 }

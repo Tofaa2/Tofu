@@ -36,6 +36,8 @@ public class Tofu extends JavaPlugin {
         this.eventManager = new EventManager();
         this.scoreboardManager = new ScoreboardManager();
 
+        TofuUpdater updater = new TofuUpdater();
+        updater.checkForUpdates(true); // Eventually once tofu is stable, this setting will be turned off.
     }
 
     @Override public void onDisable() {

@@ -22,12 +22,14 @@ public class ConfigurationManager {
     private final File hologramsFile = new File(Tofu.getInstance().getDataFolder(), "holograms.yml");
     private final File itemsFile = new File(Tofu.getInstance().getDataFolder(), "items.yml");
     private final File scoreboardsFile = new File(Tofu.getInstance().getDataFolder(), "scoreboards.yml");
+    private final File permissionsFile = new File(Tofu.getInstance().getDataFolder(), "permissions.yml");
 
     @Getter private FileConfiguration config;
     @Getter private FileConfiguration messages;
     @Getter private FileConfiguration holograms;
     @Getter private FileConfiguration scoreboards;
     @Getter private FileConfiguration items;
+    @Getter private FileConfiguration permissions;
 
 
     public ConfigurationManager() {
@@ -83,11 +85,24 @@ public class ConfigurationManager {
                 }
             }
         }
+
+        if (!permissionsFile.exists()) {
+            try {
+                Tofu.getInstance().saveResource("permissions.yml", false);
+            } catch (Exception e) {
+                TofuLogger.logError("Could not create permissions file!");
+                if (Configuration.get(Configuration.DEBUG_MODE).equals(true)) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
         this.config = YamlConfiguration.loadConfiguration(configFile);
         this.messages = YamlConfiguration.loadConfiguration(messagesFile);
         this.holograms = YamlConfiguration.loadConfiguration(hologramsFile);
         this.items = YamlConfiguration.loadConfiguration(itemsFile);
         this.scoreboards = YamlConfiguration.loadConfiguration(scoreboardsFile);
+        this.permissions = YamlConfiguration.loadConfiguration(permissionsFile);
     }
 
 
@@ -109,6 +124,9 @@ public class ConfigurationManager {
             this.scoreboards = YamlConfiguration.loadConfiguration(scoreboardsFile);
             Tofu.getInstance().getItemManager().reload();
         }
+        else if (file.equals(permissionsFile)) {
+            this.permissions = YamlConfiguration.loadConfiguration(permissionsFile);
+        }
         else {
             throw new IncorrectTofuConfigurationException(file);
         }
@@ -119,6 +137,7 @@ public class ConfigurationManager {
         this.holograms = YamlConfiguration.loadConfiguration(hologramsFile);
         this.scoreboards = YamlConfiguration.loadConfiguration(scoreboardsFile);
         this.items = YamlConfiguration.loadConfiguration(itemsFile);
+        this.permissions = YamlConfiguration.loadConfiguration(permissionsFile);
         Tofu.getInstance().getItemManager().reload();
         Tofu.getInstance().getScoreboardManager().reload();
     }
@@ -149,6 +168,20 @@ public class ConfigurationManager {
                 this.items.save(itemsFile);
             } catch (Exception e) {
                 Tofu.getInstance().getLogger().severe("Could not save items file!");
+            }
+        }
+        else if (config.equals(scoreboardsFile)) {
+            try {
+                this.scoreboards.save(scoreboardsFile);
+            } catch (Exception e) {
+                Tofu.getInstance().getLogger().severe("Could not save scoreboards file!");
+            }
+        }
+        else if (config.equals(permissionsFile)) {
+            try {
+                this.permissions.save(permissionsFile);
+            } catch (Exception e) {
+                Tofu.getInstance().getLogger().severe("Could not save permissions file!");
             }
         }
         else {

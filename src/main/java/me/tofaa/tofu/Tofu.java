@@ -5,6 +5,7 @@ import me.tofaa.tofu.configuration.ConfigurationManager;
 import me.tofaa.tofu.database.Database;
 import me.tofaa.tofu.event.EventManager;
 import me.tofaa.tofu.item.ItemManager;
+import me.tofaa.tofu.permission.PermissionManager;
 import me.tofaa.tofu.scoreboard.ScoreboardManager;
 import me.tofaa.tofu.utilities.TofuTaskManager;
 import me.tofaa.tofu.utilities.nms.NMSHandler;
@@ -22,6 +23,7 @@ public class Tofu extends JavaPlugin {
     @Getter private Database database;
     @Getter private ScoreboardManager scoreboardManager;
     @Getter private EventManager eventManager;
+    @Getter private PermissionManager permissionManager;
 
     @Override public void onLoad(){instance = this;}
     @Override public void onEnable() {
@@ -34,6 +36,7 @@ public class Tofu extends JavaPlugin {
         this.nmsHandler = new NMSHandler();
         this.database = new Database();
         this.eventManager = new EventManager();
+        this.permissionManager = new PermissionManager();
         this.scoreboardManager = new ScoreboardManager();
 
         TofuUpdater updater = new TofuUpdater();

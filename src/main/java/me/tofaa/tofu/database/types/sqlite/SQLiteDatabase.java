@@ -15,7 +15,7 @@ public class SQLiteDatabase implements IDBClient {
     private Connection connection;
     private final String dbName;
 
-    public SQLiteDatabase(String dbName) {
+    public SQLiteDatabase(String dbName, String table) {
         this.dbName = dbName;
         File dataFolder = new File(Tofu.getInstance().getDataFolder(), "Database/SQLite");
         if (!dataFolder.exists()) {
@@ -36,12 +36,17 @@ public class SQLiteDatabase implements IDBClient {
         }
 
         connection = SQLiteConnection.open(dataFile.getAbsolutePath());
+        try {
+            assert connection != null;
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM " + table + " WHERE player = ?");
+            ResultSet rs = ps.executeQuery();
+            close(ps, rs);
+        }
+        catch (Exception e) {
+            Tofu.getInstance().getLogger().severe("Error while checking SQLite Database table");
+            if (Configuration.get(Configuration.DEBUG_MODE).equals(true)) e.printStackTrace();
+        }
     }
-
-    public void init() {
-
-    }
-
 
 
 
@@ -57,7 +62,6 @@ public class SQLiteDatabase implements IDBClient {
             e.printStackTrace();
         }
     }
-
     public Connection getConnection() {return this.connection;}
 
 }

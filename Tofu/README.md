@@ -29,7 +29,7 @@ public class HelpCommand extends TofuCommand {
 
 
 public class Main() {
-    TofuAPI.getCommandManager().registerCommand(new TestCommand()); // Register the command
+    TofuAPI.getCommandAPI().registerCommand(new TestCommand()); // Register the command
 }
  ```
 

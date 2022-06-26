@@ -1,5 +1,5 @@
 ./Discord/node_modules
-
+/Discord/node_modules
 # User-specific stuff
 /Tofu/.idea/
 

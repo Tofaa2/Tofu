@@ -1,6 +1,7 @@
 package me.tofaa.tofu.permission;
 
 import me.tofaa.tofu.Tofu;
+import me.tofaa.tofu.TofuLogger;
 import me.tofaa.tofu.configuration.type.Configuration;
 import me.tofaa.tofu.database.types.sqlite.SQLiteDatabase;
 import org.bukkit.entity.Player;
@@ -29,7 +30,7 @@ public class PermissionSQL extends SQLiteDatabase {
             }
         }
         catch (SQLException e) {
-            Tofu.getInstance().getLogger().severe("Error while checking SQLite Database table");
+            TofuLogger.logError("Error while checking SQLite Database table");
             if (Configuration.get(Configuration.DEBUG_MODE).equals(true)) e.printStackTrace();
         }
         return Tofu.getInstance().getPermissionManager().getGroup("default");
@@ -45,7 +46,7 @@ public class PermissionSQL extends SQLiteDatabase {
             ps.executeUpdate();
         }
         catch (SQLException e) {
-            Tofu.getInstance().getLogger().severe("Error while checking SQLite Database table");
+            TofuLogger.logError("Error while checking SQLite Database table");
             if (Configuration.get(Configuration.DEBUG_MODE).equals(true)) e.printStackTrace();
         }
     }

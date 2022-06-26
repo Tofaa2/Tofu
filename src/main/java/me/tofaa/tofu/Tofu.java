@@ -39,8 +39,8 @@ public class Tofu extends JavaPlugin {
         this.permissionManager = new PermissionManager();
         this.scoreboardManager = new ScoreboardManager();
 
-        TofuUpdater updater = new TofuUpdater();
-        updater.checkForUpdates(true); // Eventually once tofu is stable, this setting will be turned off.
+        TofuUpdater updater = new TofuUpdater(this, 102724);
+        updater.checkForUpdates(true, "https://www.spigotmc.org/resources/tofu.102724/"); // Eventually once tofu is stable, this setting will be turned off.
     }
 
     @Override public void onDisable() {

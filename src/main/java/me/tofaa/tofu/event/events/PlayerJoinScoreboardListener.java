@@ -13,6 +13,7 @@ public class PlayerJoinScoreboardListener extends TofuBukkitEvent {
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         String mainId = tofu.getConfigManager().getScoreboards().getString("default-scoreboard");
+        if (mainId == null) return;
         IScoreboard scoreboard = tofu.getScoreboardManager().getBoard(mainId);
         if (scoreboard == null){
             throw new InvalidDataException("The default scoreboard cannot be null");

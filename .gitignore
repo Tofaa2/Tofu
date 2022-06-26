@@ -118,3 +118,12 @@ Icon
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
+Discord/node_modules/.package-lock.json
+Discord/node_modules/node-fetch/browser.js
+Discord/node_modules/node-fetch/LICENSE.md
+Discord/node_modules/node-fetch/package.json
+Discord/node_modules/node-fetch/README.md
+Discord/node_modules/node-fetch/lib/index.es.js
+Discord/node_modules/node-fetch/lib/index.js
+Discord/node_modules/node-fetch/lib/index.mjs
+.gitignore

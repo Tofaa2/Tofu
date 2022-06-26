@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="99cdd1e5-4ffa-4f0a-9abb-7f08e3020c8b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/SystemUtilities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/Tofu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/TofuLogger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/TofuUpdater.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/api/TofuAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/command/CommandManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/command/ICommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/command/TofuCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/command/config/ReloadConfigurationCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/command/item/GiveCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/command/util/ScoreboardCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/configuration/ConfigurationManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/configuration/type/Configuration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/configuration/type/Messages.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/database/Database.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/database/IDBClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/database/types/flatfile/FlatDataTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/database/types/flatfile/FlatFileDataListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/database/types/flatfile/FlatFileDatabase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/database/types/mysql/MySQLDatabase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/database/types/sqlite/SQLiteConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/database/types/sqlite/SQLiteDatabase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/event/EventManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/event/TofuBukkitEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/event/events/PlayerJoinScoreboardListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/gui/FillerStyle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/gui/GUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/gui/GUIClickListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/hologram/HologramAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/hologram/HologramEvents.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/item/ItemManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/item/TofuItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/permission/PermissionGroup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/permission/PermissionManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/permission/PermissionSQL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/scoreboard/ExtendedTofuScoreboard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/scoreboard/ScoreboardManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/scoreboard/TofuScoreboard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/scoreboard/data/IScoreboard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/scoreboard/data/ScoreboardString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/FakePlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/Strings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/TofuTaskManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/exceptions/IncorrectTofuConfigurationException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/exceptions/InvalidDataException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/exceptions/TofuSQLiteException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/nms/NMSHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/nms/implementations/v1_8_R3/NMSItem_1_8_R3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/nms/implementations/v1_8_R3/NMSPlayer_1_8_R3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/nms/interfaces/NMSItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/nms/interfaces/NMSPlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/tuple/Tuple.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/tuple/types/Pair.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/tuple/types/Quad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/tuple/types/Quintet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/tuple/types/Sixtet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/tuple/types/Triple.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/tuple/types/Unit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/tuple/util/QuatroFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/tofaa/tofu/utilities/tuple/util/TriFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/chat.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/holograms.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/items.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/scoreboards.yml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="D:\GitHub\TofuCore">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.jdks/corretto-11.0.15/lib/src.zip!/java.base/java/io/FileSystem.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="pj11wnu0" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2AdIiXiUENLQJcrQXS24JYwboZX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15039062&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Gradle.TofuCore [shadowJar]">
+    <configuration name="TofuCore [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TofuCore build" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" value="TofuCore build" />
+        <option name="externalProjectPath" value="D:\GitHub\TofuCore" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.TofuCore [shadowJar]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="99cdd1e5-4ffa-4f0a-9abb-7f08e3020c8b" name="Changes" comment="" />
+      <created>1655333163140</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655333163140</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/tofaa/tofu/item/TofuItem.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/me/tofaa/tofu/database/types/flatfile/FlatFileDatabase.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/me/tofaa/tofu/command/CommandManager.java</url>
+          <line>20</line>
+          <properties class="me.tofaa.tofu.command.CommandManager">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

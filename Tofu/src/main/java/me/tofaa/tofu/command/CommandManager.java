@@ -4,6 +4,7 @@ import me.tofaa.tofu.Tofu;
 import me.tofaa.tofu.TofuLogger;
 import me.tofaa.tofu.command.config.ReloadConfigurationCommand;
 import me.tofaa.tofu.command.item.GiveCommand;
+import me.tofaa.tofu.command.item.TestCommand;
 import me.tofaa.tofu.command.util.ScoreboardCommand;
 import me.tofaa.tofu.configuration.type.Configuration;
 import org.bukkit.Bukkit;
@@ -28,6 +29,8 @@ public class CommandManager {
         registerCommand(new ReloadConfigurationCommand());
         registerCommand(new GiveCommand());
         registerCommand(new ScoreboardCommand());
+
+        registerCommand(new TestCommand());
 
         for (TofuCommand command : commands) {
             Bukkit.getCommandMap().register("help", command);

@@ -1,7 +1,7 @@
 debug-mode: false # This setting lets you see more information on errors and other issues.
 
 database:
-  type: MYSQL # MYSQL, SQLITE, FLAT_FILE, MONGO
+  type: FLAT_FILE # MYSQL, SQLITE, FLAT_FILE, MONGO
   host: "jdbc:mysql://localhost:3306/test"
   port: 3306
   name: "test"

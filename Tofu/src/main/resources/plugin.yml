@@ -1,5 +1,5 @@
 name: Tofu
-version: '${version}'
+version: 0.2
 main: me.tofaa.tofu.Tofu
 authors: [ Tofaa ]
 description: A utility core with an extensive api and functions needed for every server

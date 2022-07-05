@@ -26,7 +26,7 @@ public class TofuUpdater {
             try {
                 URL url = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + resourceId);
                 String version = new Scanner(url.openStream()).next();
-                isLatestVersion[0].set(version.equals(plugin.getDescription().getVersion()));
+                isLatestVersion[0].set(version.contains(plugin.getDescription().getVersion()));
             } catch (Exception e) {
                 TofuLogger.logError("Could not check for updates!");
                 if (Configuration.get(Configuration.DEBUG_MODE).equals(true)) {
@@ -45,7 +45,7 @@ public class TofuUpdater {
             TofuLogger.logInfo("A new version of " + resourceName + " is available! If you stay at an older build you will not receive any support Download it at " + linkableURL);
             TofuLogger.logInfo("Current version: " + pl.getDescription().getVersion());
             TofuLogger.logInfo("When updating, please make sure to read the changelog!");
-            if (shutdown) Tofu.getInstance().getPluginLoader().disablePlugin(Tofu.getInstance());
+            if (shutdown) Tofu.getInstance().getPluginLoader().disablePlugin(pl);
         }
         else {
             Tofu.getInstance().getLogger().info("You are running the latest version of " + resourceName);

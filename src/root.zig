@@ -2,14 +2,16 @@ const std = @import("std");
 const windows = std.os.windows;
 
 const c = @import("c.zig");
-const jvm = @import("jvm/jvm.zig");
+const minecraft = @import("minecraft.zig");
+const jvm = @import("jvm.zig");
 
 pub fn init(m: ?*anyopaque) callconv(.C) c_ulong {
-    // var output_buffer: [*c]c.win32.FILE = null;
-    // _ = c.win32.AllocConsole();
-    // c.win32.freopen_s
-    c.win32.FreeLibraryAndExitThread(@as(c.win32.HMODULE, @ptrCast(@alignCast(m))), 0);
     jvm.init();
+    minecraft.init();
+    while (c.win32.GetAsyncKeyState(0x2E) != 1) {
+        // Main loop
+    }
+    c.win32.FreeLibraryAndExitThread(@as(c.win32.HMODULE, @ptrCast(@alignCast(m))), 0);
     return 1;
 }
 

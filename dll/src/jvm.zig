@@ -12,6 +12,9 @@ pub const jclass = c.jni.jclass;
 pub const jobject = c.jni.jobject;
 pub const jid = c.jni.jmethodID;
 
+pub var string_class: jclass = null;
+
+
 pub var vm: [*c]c.jni.JavaVM = null;
 pub var env: [*c]c.jni.JNIEnv = null;
 
@@ -33,9 +36,9 @@ pub const JavaObject = struct {
     }
 };
 
+
 pub fn init() void {
     _ = c.jni.JNI_GetCreatedJavaVMs(@ptrCast(&vm), 1, null);
-
     if (vm.*.*.GetEnv.?(vm, @ptrCast(&env), c.jni.JNI_VERSION_1_8) == c.jni.JNI_EDETACHED) {
         _ = vm.*.*.AttachCurrentThreadAsDaemon.?(vm, @ptrCast(&env), null);
     }
@@ -66,7 +69,6 @@ pub fn setBooleanField(obj: jobject, id: c.jni.jfieldID, value: bool) void {
 }
 
 pub fn callVoidMethodWithOneArg(obj: jobject, id: c.jni.jmethodID) void {
-
     env.*.*.CallVoidMethod.?(env, obj, id, true);
 }
 

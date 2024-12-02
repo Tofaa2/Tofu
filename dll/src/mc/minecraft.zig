@@ -1,4 +1,7 @@
-const jvm = @import("jvm.zig");
+const jvm = @import("../jvm.zig");
+
+
+pub const entity = @import("entity.zig");
 
 /// net/minecraft/client/Minecraft
 pub var minecraft_class: jvm.jclass = null;
@@ -16,10 +19,4 @@ pub fn init() void {
     minecraft_instance = jvm.getStaticObjectMethod(minecraft_class, jvm.getStaticMethodId(minecraft_class, "A", "()Lave;")).jobj;
 
     player_class_sp = jvm.getClass("bew");
-}
-
-pub fn getPlayer() jvm.JavaObject {
-    const id = jvm.getFieldId(minecraft_class, "h", "Lbew;");
-
-    return .{ .jobj = jvm.env.*.*.GetObjectField.?(jvm.env, minecraft_instance, id) };
 }

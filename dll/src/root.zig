@@ -2,22 +2,28 @@ const std = @import("std");
 const windows = std.os.windows;
 
 const c = @import("c.zig");
-const minecraft = @import("minecraft.zig");
+const minecraft = @import("mc/minecraft.zig");
+const input = @import("input.zig");
 const jvm = @import("jvm.zig");
 
+
+pub var allocator: std.mem.Allocator = undefined;
+
 pub fn init(m: ?*anyopaque) callconv(.C) c_ulong {
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    allocator = gpa.allocator();
     jvm.init();
     minecraft.init();
-    while (c.win32.GetAsyncKeyState(0x2E) != 1) { // == DELETE KEY
-        // Main loop
-
-        if (minecraft.getPlayer().jobj) |player| {
-            const setSprintingId = jvm.getLocalMethodId(minecraft.player_class_sp, "d", "(Z)V");
-
-            jvm.callVoidMethodWithOneArg(player, setSprintingId);
-            std.Thread.sleep(10000000);
+    while (!input.isKeyDown(.delete)) {
+        var player = minecraft.entity.getPlayer();
+        if (player.obj.exists()) {
+            if (input.isKeyDown(.key_w)) {
+                player.setSprinting(true);
+            }
         }
+        std.Thread.sleep(std.time.us_per_ms * 1000);        
     }
+    _ = gpa.deinit(); // Checks for memory leaks incase storm asks
     c.win32.FreeLibraryAndExitThread(@as(c.win32.HMODULE, @ptrCast(@alignCast(m))), 0);
     return 1;
 }

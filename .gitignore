@@ -1,2 +1,5 @@
-.zig-cache
-zig-out
+app/.zig-cache
+app/zig-out
+
+dll/.zig-cache
+dll/zig-out

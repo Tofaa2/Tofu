@@ -133,11 +133,11 @@ pub fn getKeyAsAsciiCharacter(key: KeyboardKey) void {
     return @as(c_char, cdef);
 }
 
-pub fn isKeyDown(key: KeyboardKey) bool {
+pub fn isKeyPressed(key: KeyboardKey) bool {
     return state(@intFromEnum(key)) == 1;
 }
 
-pub fn isMouseButtonDown(button: MouseButton) bool {
+pub fn isMouseButtonPressed(button: MouseButton) bool {
     return state(@intFromEnum(button)) == 1;
 }
 

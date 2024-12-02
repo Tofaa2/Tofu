@@ -6,7 +6,6 @@ const minecraft = @import("mc/minecraft.zig");
 const input = @import("input.zig");
 const jvm = @import("jvm.zig");
 
-
 pub var allocator: std.mem.Allocator = undefined;
 
 pub fn init(m: ?*anyopaque) callconv(.C) c_ulong {
@@ -14,11 +13,15 @@ pub fn init(m: ?*anyopaque) callconv(.C) c_ulong {
     allocator = gpa.allocator();
     jvm.init();
     minecraft.init();
-    while (!input.isKeyDown(.delete)) {
+    while (!input.isKeyPressed(.delete)) {
         var player = minecraft.entity.getPlayer();
         if (player.obj.exists()) {
-            if (input.isKeyDown(.key_w)) {
+            if (input.isKeyPressed(.key_w)) {
                 player.setSprinting(true);
+            }
+
+            if (input.isMouseButtonPressed(.right)) {
+                player.dropHeld(true);
             }
         }
         std.Thread.sleep(std.time.us_per_ms * 1000);        

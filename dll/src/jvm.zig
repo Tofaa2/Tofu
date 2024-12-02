@@ -68,10 +68,6 @@ pub fn setBooleanField(obj: jobject, id: c.jni.jfieldID, value: bool) void {
     env.*.*.SetBooleanField.?(env, obj, id, value);
 }
 
-pub fn callVoidMethodWithOneArg(obj: jobject, id: c.jni.jmethodID) void {
-    env.*.*.CallVoidMethod.?(env, obj, id, true);
-}
-
 pub fn getClass(name: [*c]const u8) c.jni.jclass {
     return env.*.*.FindClass.?(env, name);
 }

@@ -28,6 +28,7 @@ pub fn init(m: ?*anyopaque) callconv(.C) c_ulong {
     }
     _ = gpa.deinit(); // Checks for memory leaks incase storm asks
     c.win32.FreeLibraryAndExitThread(@as(c.win32.HMODULE, @ptrCast(@alignCast(m))), 0);
+
     return 1;
 }
 

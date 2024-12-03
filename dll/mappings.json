@@ -1,7 +1,15 @@
-{
-    "vanilla": {
-        
-    }
 
+{
+    "fields": {
+
+        "the_player": {
+            "lunar": {},
+            "forge": {},
+            "vanilla": {}
+        }
+
+    },
+    "classes": {},
+    "methods": {}
 
 }

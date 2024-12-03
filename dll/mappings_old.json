@@ -1,0 +1,50 @@
+{
+    "vanilla": {
+        "type": "vanilla",
+        "classes": {
+
+            "minecraft": "ave",
+            "entity_player_sp": "bew",
+            "entity_player_mp": "lf",
+            "entity_player": "wn"
+
+        }, 
+        "methods": {
+            "get_minecraft": {
+                "name": "getMinecraft",
+                "secret": "()Lave;",
+                "static": true
+            }
+        },
+        "fields": {}
+    },
+    "lunar": {
+        "type": "lunar",
+        "classes": {
+            "minecraf": "net/minecraft/client/Minecraft",
+            "entity_player_sp": "net/minecraft/client/entity/EntityPlayerSP",
+            "entity_player_mp": "net/minecraft/entity/player/EntityPlayerMP",
+            "entity_player": "net/minecraft/entity/player/EntityPlayer"
+        }, 
+        "methods": {
+
+            "get_minecraft": {
+                "name": "getMinecraft",
+                "secret": "()Lnet/minecraft/client/Minecraft;"
+            }
+        },
+        "fields": {}
+    },
+    "forge": {
+        "type": "forge",
+        "classes": {
+            "minecraf": "not_functional",
+            "entity_player_sp": "not_functional",
+            "entity_player_mp": "not_functional",
+            "entity_player": "not_functional"
+        }, 
+        "methods": {},
+        "fields": {}
+    }
+
+}

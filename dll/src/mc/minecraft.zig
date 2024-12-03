@@ -16,7 +16,6 @@ pub var player_class: jvm.jclass = null;
 
 pub fn init() void {
     minecraft_class = jvm.getClass("ave");
-    minecraft_instance = jvm.getStaticObjectMethod(minecraft_class, jvm.getStaticMethodId(minecraft_class, "A", "()Lave;")).jobj;
-
+    minecraft_instance = jvm.Caller.callStaticObjectMethod(minecraft_class, jvm.getMethodId(minecraft_class, true, "A", "()Lave;")).jobj;
     player_class_sp = jvm.getClass("bew");
 }

@@ -19,10 +19,29 @@ pub fn build(b: *std.Build) void {
     lib.addLibraryPath(b.path("libs"));
     lib.addObjectFile(b.path("libs/jvm.lib"));
 
+    addRaylib(b, lib, target, optimize);
 
     b.installArtifact(lib);
 
-    std.debug.print("Libs {any}", .{ lib.root_module.lib_paths.items });
+}
 
+pub fn addRaylib(
+    b: *std.Build,
+    lib: *std.Build.Step.Compile,
+    target: std.Build.ResolvedTarget,
+    optimize: std.builtin.OptimizeMode,
+) void {
 
+    const raylib_dep = b.dependency("raylib-zig", .{
+        .target = target,
+        .optimize = optimize,
+    });
+
+    const raylib = raylib_dep.module("raylib"); // main raylib module
+    const raygui = raylib_dep.module("raygui"); // raygui module
+    const raylib_artifact = raylib_dep.artifact("raylib"); // raylib C library
+
+    lib.linkLibrary(raylib_artifact);
+    lib.root_module.addImport("raylib", raylib);
+    lib.root_module.addImport("raygui", raygui);
 }

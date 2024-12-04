@@ -6,7 +6,7 @@
 /// For methods ids secrets, its () + field_name_type + ;
 /// For fields ids secrets, its L + field_name_type + ;
 /// Where field name type is for example, float is F, double is D, int is I, etc...
-const c = @import("c.zig");
+const c = @import("../c.zig");
 
 pub const jclass = c.jni.jclass;
 pub const jobject = c.jni.jobject;
@@ -16,6 +16,8 @@ pub var string_class: jclass = null;
 
 pub var vm: [*c]c.jni.JavaVM = null;
 pub var env: [*c]c.jni.JNIEnv = null;
+
+
 
 pub const JavaObject =extern  struct {
     jobj: c.jni.jobject,
@@ -34,13 +36,6 @@ pub const JavaObject =extern  struct {
         return self.jobj != null;
     }
 };
-
-pub fn init() void {
-    _ = c.jni.JNI_GetCreatedJavaVMs(@ptrCast(&vm), 1, null);
-    if (vm.*.*.GetEnv.?(vm, @ptrCast(&env), c.jni.JNI_VERSION_1_8) == c.jni.JNI_EDETACHED) {
-        _ = vm.*.*.AttachCurrentThreadAsDaemon.?(vm, @ptrCast(&env), null);
-    }
-}
 
 pub const Caller = struct {
     pub fn callStaticByteMethod(class: jclass, id: jid, ...) callconv(.C) c.jni.jbyte {
@@ -216,4 +211,21 @@ pub fn getFieldId(class: jclass, static: bool, name: [*c]const u8, secret: [*c]c
 
 pub fn getClass(name: [*c]const u8) c.jni.jclass {
     return env.*.*.FindClass.?(env, name);
+}
+
+pub fn init() void {
+    _ = c.jni.JNI_GetCreatedJavaVMs(@ptrCast(&vm), 1, null);
+    if (vm.*.*.GetEnv.?(vm, @ptrCast(&env), c.jni.JNI_VERSION_1_8) == c.jni.JNI_EDETACHED) {
+        _ = vm.*.*.AttachCurrentThreadAsDaemon.?(vm, @ptrCast(&env), null);
+    }
+    checkErorrs();
+}
+
+
+
+pub fn checkErorrs() void {
+    if (env.*.*.ExceptionCheck.?(env) == 1) {
+        env.*.*.ExceptionDescribe.?(env);
+        env.*.*.ExceptionClear.?(env);
+    }
 }

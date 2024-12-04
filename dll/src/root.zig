@@ -1,16 +1,20 @@
 const std = @import("std");
 const windows = std.os.windows;
-
 const c = @import("c.zig");
 const minecraft = @import("mc/minecraft.zig");
 const input = @import("input.zig");
-const jvm = @import("jvm.zig");
+const jvm = @import("jvm/jvm.zig");
+const ui = @import("ui/ui.zig");
+const EventBus = @import("event_bus.zig").EventBus;
 
 pub var allocator: std.mem.Allocator = undefined;
+pub var event_bus: EventBus = undefined;
 
 pub fn init(m: ?*anyopaque) callconv(.C) c_ulong {
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     allocator = gpa.allocator();
+    event_bus = EventBus.init(allocator);
+    ui.init() catch unreachable;
     jvm.init();
     minecraft.init();
     while (!input.isKeyPressed(.delete)) {
@@ -26,9 +30,10 @@ pub fn init(m: ?*anyopaque) callconv(.C) c_ulong {
         }
         std.Thread.sleep(std.time.us_per_ms * 1000);        
     }
+    event_bus.deinit();
+    ui.deinit();
     _ = gpa.deinit(); // Checks for memory leaks incase storm asks
     c.win32.FreeLibraryAndExitThread(@as(c.win32.HMODULE, @ptrCast(@alignCast(m))), 0);
-
     return 1;
 }
 

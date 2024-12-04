@@ -1,4 +1,4 @@
-const jvm = @import("../jvm.zig");
+const jvm = @import("../jvm/jvm.zig");
 
 
 pub const entity = @import("entity.zig");

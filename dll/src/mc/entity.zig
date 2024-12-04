@@ -1,4 +1,4 @@
-pub const jvm = @import("../jvm.zig");
+pub const jvm = @import("../jvm/jvm.zig");
 const mc = @import("minecraft.zig");
 const c = @import("../c.zig");
 

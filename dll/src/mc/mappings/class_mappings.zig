@@ -15,12 +15,6 @@ pub const FieldMapping = struct {
     srg: str,
     static: bool = false,
 
-    // pub fn findRaw(self: FieldMapping, class: jvm.jclass) jvm.jobject {
-    //     jvm.env.*.*.Get
-    // }
-
-    // pub fn find
-
 };
 
 
